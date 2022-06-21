@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import android.example.notekeeper.databinding.FragmentFirstBinding
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -24,8 +25,11 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+
+
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
+
 
     }
 
@@ -33,7 +37,15 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            val originalValue = binding.textDisplayedValue.text.toString().toInt()
+            val newValue = originalValue * 2
+            binding.textDisplayedValue.text = newValue.toString()
+
+            Snackbar.make(it, "Value $originalValue changed to $newValue",
+                Snackbar.LENGTH_LONG)
+                .show()
+
         }
     }
 
@@ -41,4 +53,5 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
