@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.example.notekeeper.databinding.ActivityMainBinding
 import android.example.notekeeper.databinding.FragmentFirstBinding
+import android.widget.ArrayAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        fragmentOne = FragmentFirstBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)

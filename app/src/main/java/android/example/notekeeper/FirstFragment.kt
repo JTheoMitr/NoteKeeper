@@ -1,13 +1,15 @@
 package android.example.notekeeper
 
+import android.R
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import android.example.notekeeper.databinding.FragmentFirstBinding
-import com.google.android.material.snackbar.Snackbar
+import android.widget.ArrayAdapter
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -20,21 +22,34 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-
-
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return binding.root
 
+        return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val dm = DataManager()
+        val adapterCourses = context?.let {
+            ArrayAdapter<CourseInfo>(
+                it,
+                R.layout.simple_spinner_item,
+                dm.courses.values.toList())
+        }
+
+        adapterCourses?.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+
+        binding.spinnerCourses.adapter = adapterCourses
+
+
 
 //        binding.buttonFirst.setOnClickListener {
 //            //findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
@@ -47,6 +62,10 @@ class FirstFragment : Fragment() {
 //                .show()
 //
 //        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
     }
 
     override fun onDestroyView() {
