@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/activity_note_list.xml" value="0.1796875" />
         <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/content_main.xml" value="0.1796875" />
         <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/fragment_first.xml" value="0.22" />
+        <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/fragment_first2.xml" value="0.1796875" />
+        <entry key="..\:/Users/955362/AndroidStudioProjects/NoteKeeper/app/src/main/res/layout/fragment_second.xml" value="0.22" />
       </map>
     </option>
   </component>
