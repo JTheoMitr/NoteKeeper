@@ -17,12 +17,12 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="android.example.notekeeper.SecondFragment"
+        android:name="android.example.notekeeper.NoteListFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_note_list">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_NoteListFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
