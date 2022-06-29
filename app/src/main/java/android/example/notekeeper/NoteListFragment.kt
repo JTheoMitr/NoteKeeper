@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.example.notekeeper.databinding.FragmentNoteListBinding
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -47,6 +48,16 @@ class NoteListFragment : Fragment() {
 
         binding.listNotes.adapter = context?.let {
             ArrayAdapter(it, android.R.layout.simple_list_item_1, DataManager.notes)
+        }
+
+        binding.listNotes.setOnItemClickListener { parent, view, position, id ->
+
+                val bundle = bundleOf(
+                    EXTRA_NOTE_POSITION to position
+                )
+
+            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment,
+            bundle)
         }
     }
 
