@@ -37,12 +37,12 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dm = DataManager()
+
         val adapterCourses = context?.let {
             ArrayAdapter<CourseInfo>(
                 it,
                 R.layout.simple_spinner_item,
-                dm.courses.values.toList())
+                DataManager.courses.values.toList())
         }
 
         adapterCourses?.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)

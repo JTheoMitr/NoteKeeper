@@ -1,11 +1,12 @@
 package android.example.notekeeper
-
-class DataManager {
+// we want a singleton class so declaring it with object instead of class.  one instance to hold all data across fragments
+object DataManager {
     val courses = HashMap<String, CourseInfo>()
     val notes = ArrayList<NoteInfo>()
 
     init {
         initializeCourses()
+        initializeNotes()
     }
 
     private fun initializeCourses() {
@@ -20,5 +21,14 @@ class DataManager {
 
         course = CourseInfo("java_core", "Java Fundamentals: The Core Platform")
         courses.set(course.courseId, course)
+    }
+
+    private fun initializeNotes() {
+        //TBD
+        var note = NoteInfo(CourseInfo("android_intents", "Android Programming with Intents"), "Android Program Notes", "Taking notes about Android Programming")
+        notes.add(note)
+
+        note = NoteInfo(CourseInfo("java_core", "Java Fundamentals: The Core Platform"), "Java Core notes", "We be java jammin'")
+        notes.add(note)
     }
 }

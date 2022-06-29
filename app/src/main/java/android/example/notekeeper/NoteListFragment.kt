@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.example.notekeeper.databinding.FragmentNoteListBinding
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 
@@ -42,6 +43,10 @@ class NoteListFragment : Fragment() {
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_NoteListFragment_to_FirstFragment)
+        }
+
+        binding.listNotes.adapter = context?.let {
+            ArrayAdapter(it, android.R.layout.simple_list_item_1, DataManager.notes)
         }
     }
 

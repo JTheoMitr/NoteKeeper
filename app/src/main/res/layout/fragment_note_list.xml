@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:backgroundTint="#C37DE1"
         android:clickable="true"
         android:foregroundGravity="bottom"
         android:src="@android:drawable/ic_menu_add"
