@@ -38,11 +38,11 @@ class NoteListFragment : Fragment() {
         // simple button logic to navigate to First Fragment:
 
         binding.btnMove.setOnClickListener {
-            findNavController().navigate(R.id.action_NoteListFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment)
         }
 
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_NoteListFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment)
         }
 
         binding.listNotes.adapter = context?.let {

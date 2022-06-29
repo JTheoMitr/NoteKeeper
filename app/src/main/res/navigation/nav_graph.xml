@@ -3,26 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/SecondFragment">
+    app:startDestination="@id/NoteListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="android.example.notekeeper.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/NewNoteFragment"
+        android:name="android.example.notekeeper.NewNoteFragment"
+        android:label="NewNoteFragment"
+        tools:layout="@layout/fragment_new_note">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_NewNoteFragment_to_NoteListFragment"
+            app:destination="@id/NoteListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/NoteListFragment"
         android:name="android.example.notekeeper.NoteListFragment"
-        android:label="@string/second_fragment_label"
+        android:label="NoteListFragment"
         tools:layout="@layout/fragment_note_list">
 
         <action
-            android:id="@+id/action_NoteListFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_NoteListFragment_to_NewNoteFragment"
+            app:destination="@id/NewNoteFragment" />
     </fragment>
 </navigation>
