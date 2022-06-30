@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.example.notekeeper.databinding.FragmentNewNoteBinding
+import android.util.Log
 import android.widget.ArrayAdapter
 
 
@@ -21,6 +22,7 @@ class NewNoteFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var notePosition = POSITION_NOT_SET
 
 
     override fun onCreateView(
@@ -30,9 +32,13 @@ class NewNoteFragment : Fragment() {
 
         _binding = FragmentNewNoteBinding.inflate(inflater, container, false)
 
+        notePosition = arguments?.getInt(EXTRA_NOTE_POSITION, POSITION_NOT_SET)!!
+
+
         return binding.root
 
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,6 +56,10 @@ class NewNoteFragment : Fragment() {
         binding.spinnerCourses.adapter = adapterCourses
 
 
+        if (notePosition != POSITION_NOT_SET) {
+            displayNote()
+        }
+
 
 //        binding.buttonFirst.setOnClickListener {
 //            //findNavController().navigate(R.id.action_NewNoteFragment_to_NoteListFragment)
@@ -62,6 +72,16 @@ class NewNoteFragment : Fragment() {
 //                .show()
 //
 //        }
+    }
+
+    private fun displayNote() {
+        val note = DataManager.notes[notePosition]
+        binding.textNoteTitle.setText(note.title)
+        binding.textNoteText.setText(note.text)
+
+        val coursePosition = DataManager.courses.values.indexOf(note.course)
+        Log.d("course", "index is ${DataManager.courses.values.indexOf(note.course)}")
+        binding.spinnerCourses.setSelection(coursePosition)
     }
 
     override fun onAttach(context: Context) {

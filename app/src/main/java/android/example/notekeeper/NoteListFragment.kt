@@ -38,12 +38,14 @@ class NoteListFragment : Fragment() {
 
         // simple button logic to navigate to First Fragment:
 
-        binding.btnMove.setOnClickListener {
-            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment)
-        }
-
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment)
+
+            // added a bundle with default values for new note, was crashing with nullPointerException without this blank bundle? was getting thrown by notePosition in newNote code
+            val bundle = bundleOf(
+                EXTRA_NOTE_POSITION to -1
+            )
+
+            findNavController().navigate(R.id.action_NoteListFragment_to_NewNoteFragment, bundle)
         }
 
         binding.listNotes.adapter = context?.let {
